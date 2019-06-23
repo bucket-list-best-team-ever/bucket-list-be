@@ -1,7 +1,7 @@
 const express = require('express');
 const authRoute = require('./routes/authroutes');
 const usersRoute = require('./routes/usersroutes');
-const bucketItemRoute = require('./routes/bucketitemroutes');
+const bucketRoute = require('./routes/bucketroutes');
 const helmet = require('helmet');
 const cors = require('cors');
 const { isLoggedIn } = require('./middleware/authmiddleware');
@@ -16,6 +16,6 @@ server.use(express.json());
  
 server.use("/api", authRoute);  
 server.use("/api", isLoggedIn, usersRoute);  
-server.use("/api", isLoggedIn, bucketItemRoute);  
+server.use("/api", isLoggedIn, bucketRoute);  
 
 module.exports = server;

@@ -1,5 +1,5 @@
 const userDb = require("../models/authmodel");
-const bucketDb = require("../models/bucketmodel");
+const bucketDb = require("../models/bucketitemmodel");
 const express = require('express');
 
 const router = express.Router(); 
