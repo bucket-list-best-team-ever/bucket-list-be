@@ -6,7 +6,9 @@ exports.seed = function(knex, Promise) {
   return knex('users').truncate()
     .then(function () {
       return knex('users').insert([
-        {name: 'Test User', email: 'test@test.com', password: bcrypt.hashSync('test', 8)},
+        {name: 'Test User', 
+         email: 'test@test.com', 
+         password: bcrypt.hashSync('test', 8)},
 
       ]);
     });

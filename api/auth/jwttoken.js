@@ -3,7 +3,7 @@ const secrets = require('../../config/secrets');
 
 function getToken(user){
     const payload = {
-        user_id: user.email,
+        email: user.email,
         password: user.password,
     };
 
@@ -18,10 +18,10 @@ function verify(token){
 
     try {
         const results = jwt.verify(token, secrets.jwtSecret);
-        return null;
+        return {status: 0, results: results};
     }
     catch (error){
-        return error;
+        return {status: 1, error: error};
     }
 }
 
