@@ -115,7 +115,7 @@ router.delete('/item/post/:id', (req, res) => {
 
 router.get('/item/post/:post_id/images', (req, res) => {
   
-    bucketPostImageDb.getBucketItemPostByPostId(req.params.post_id)
+    bucketPostImageDb.getBucketItemPostImageByPostId(req.params.post_id)
     .then(response => {
         if (response)
             res.status(200).json({images: response});

@@ -67,7 +67,7 @@
 ### POST /api/item/post
 
     -input:
-        -bucketitem_id -Required
+        -item_id -Required
         -message -Required
 
     -returns id of new post
@@ -75,7 +75,7 @@
 ### POST /api/item/post/image
 
     -input:
-        -bucketitempost_id -Required
+        -post_id -Required
         -image 
         -url
 
@@ -94,7 +94,7 @@
 ### PUT /api/item/post/:id
 
     -input:
-        -bucketitem_id -Required
+        -item_id -Required
         -message -Required
 
     -returns id of updated post
@@ -102,7 +102,7 @@
 ### PUT /item/post/image/:id
 
     -input:
-        -bucketitempost_id -Required
+        -post_id -Required
         -image 
         -url
 
