@@ -1,5 +1,6 @@
 const bucketDb = require("../models/bucketitemmodel");
 const bucketPostDb = require("../models/bucketitempostmodel");
+const bucketPostImageDb = require("../models/bucketitempostimagemodel");
 const express = require('express');
 
 const router = express.Router(); 
@@ -51,7 +52,7 @@ router.delete('/bucketitem/:id', (req, res) => {
     });
 });
 
-router.get('/bucketitem/:item_id/items', (req, res) => {
+router.get('/bucketitem/:item_id/posts', (req, res) => {
   
     bucketPostDb.getBucketItemPostByItemId(req.params.item_id)
     .then(response => {
@@ -72,7 +73,7 @@ router.get('/bucketitem/post/:id', (req, res) => {
         if (response)
             res.status(200).json({bucketitempost: response});
         else
-            res.status(404).json({ message: "Bucket item post not found" });
+            res.status(404).json({ message: "Post not found" });
     })
     .catch(error => {
         res.status(500).json({error: error.message});
@@ -104,6 +105,67 @@ router.put('/bucketitem/post/:id', (req, res) => {
 router.delete('/bucketitem/post/:id', (req, res) => {
   
     bucketPostDb.deleteBucketItemPost(req.params.id)
+    .then(response => {
+            res.status(200).json({message: `deleted id ${req.params.id}`});
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
+router.get('/bucketitem/post/:post_id/images', (req, res) => {
+  
+    bucketPostImageDb.getBucketItemPostByPostId(req.params.post_id)
+    .then(response => {
+        if (response)
+            res.status(200).json({posts: response});
+        else
+            res.status(404).json({ message: "No images for this post found" });
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
+router.get('/bucketitem/post/image/:id', (req, res) => {
+  
+    bucketPostImageDb.getBucketItemPostImageById(req.params.id)
+    .then(response => {
+        if (response)
+            res.status(200).json({bucketitempost: response});
+        else
+            res.status(404).json({ message: "Image not found" });
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
+router.post('/bucketitem/post/image', (req, res) => {
+  
+    bucketPostImageDb.createBucketItemPostImage(req.body)
+    .then(response => {
+            res.status(200).json({id: response});
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
+router.put('/bucketitem/post/image/:id', (req, res) => {
+  
+    bucketPostImageDb.updateBucketItemPostImage(req.params.id, req.body)
+    .then(response => {
+            res.status(200).json({id: response});
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
+router.delete('/bucketitem/post//image/:id', (req, res) => {
+  
+    bucketPostImageDb.deleteBucketItemPostImage(req.params.id)
     .then(response => {
             res.status(200).json({message: `deleted id ${req.params.id}`});
     })

@@ -20,16 +20,24 @@
 
 ### GET /api/bucketitem/:id'
 
-    -returns bucket list item by id
+    -returns bucket list item for id
 
 ### GET /api/bucketitem/:item_id/posts
 
-    -returns all posts for an item for item_id
+    -returns all posts for item_id
 
 
 ### GET /api/bucketitem/post/:id
 
     -returns a post for id
+
+### GET /api/bucketitem/post/:post_id/images
+
+    -returns an all images for post_id
+
+### GET /api/bucketitem/post/image/:id
+
+    -returns image for id 
 
 ### POST /api/register
 
@@ -64,6 +72,17 @@
 
     -returns id of new post
 
+### POST /api/bucketitem/post/image
+
+    -input:
+        -bucketitempost_id -Required
+        -image 
+        -url
+
+    image and url are not required so you can choose how to store an image.
+
+    -returns id of new post
+
 ### PUT /api/bucketitem/:id
 
     -input:
@@ -80,6 +99,15 @@
 
     -returns id of updated post
 
+### PUT /bucketitem/post/image/:id
+
+    -input:
+        -bucketitempost_id -Required
+        -image 
+        -url
+
+    -returns id of updated image
+
 ### DELETE /api/bucketitem/:id
 
     -returns deletes an item by id and returns { message: "deleted id id# " }
@@ -87,3 +115,8 @@
 ### DELETE /api/bucketitem/post/:id
 
     -returns deletes an post by id and returns { message: "deleted id id# " }
+
+
+### DELETE /bucketitem/post//image/:id
+
+    -returns deletes an image by id and returns { message: "deleted id id# " }

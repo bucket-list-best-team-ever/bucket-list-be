@@ -14,9 +14,9 @@ function getBucketItemPostById(id) {
         .first();
 }
 
-function getBucketItemPostByItemId(post_id) {
+function getBucketItemPostByItemId(item_id) {
     return db('bucketitempost')
-        .where({ post_id });
+        .where({ item_id });
 }
 
 async function createBucketItemPost(bucketitempost){

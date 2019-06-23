@@ -4,6 +4,7 @@ const express = require('express');
 
 const router = express.Router(); 
 
+// Get all users
 router.get('/users', (req, res) => {
     userDb.getUsers()
     .then(response => {
@@ -17,6 +18,7 @@ router.get('/users', (req, res) => {
     });
 });
 
+// Get user currently logged in
 router.get('/user', (req, res) => {
   
     userDb.getUserByEmail(req.user.email)
@@ -31,6 +33,7 @@ router.get('/user', (req, res) => {
     });
 });
 
+// Get all users bucket list items
 router.get('/user/:user_id/items', (req, res) => {
   
     bucketDb.getBucketItemByUserId(req.params.user_id)

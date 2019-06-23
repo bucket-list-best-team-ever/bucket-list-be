@@ -38,7 +38,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", validateUser, (req, res) => {
     const token = req.token;
-    res.status(200).json({message: "logged in", token});
+    res.status(200).json({message: "Logged in", token});
 });
 
 module.exports = router;
