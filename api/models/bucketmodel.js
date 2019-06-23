@@ -10,7 +10,7 @@ module.exports = {
 
 function getBucketItemById(id) {
     return db('bucketitem')
-        .where(id)
+        .where({ id })
         .first();
 }
 
@@ -19,18 +19,18 @@ function getBucketItemByUserId(user_id) {
         .where(user_id);
 }
 
-function createBucketItem(bucketitem){
-    const [id] = db('bucketitem')
+async function createBucketItem(bucketitem){
+    const [id] = await db('bucketitem')
     .insert(bucketitem);
 
     return id;
 }
 
 function updateBucketItem(id, bucketitem){
-    return db('bucketitem')
+    return  db('bucketitem')
     .where({ id })
     .update(bucketitem);
-}
+}   
 
 function deleteBucketItem(id){
     return db('bucketitem')

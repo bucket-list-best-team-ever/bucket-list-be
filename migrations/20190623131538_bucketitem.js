@@ -13,7 +13,6 @@ exports.up = function(knex, Promise) {
            .onUpdate("CASCADE");
         tbl.string('description', 1000)
            .notNullable()
-           .unique();
            tbl.timestamp('created')
            .defaultTo(knex.fn.now());
       });
