@@ -163,7 +163,7 @@ router.put('/item/post/image/:id', (req, res) => {
     });
 });
 
-router.delete('/item/post//image/:id', (req, res) => {
+router.delete('/item/post/image/:id', (req, res) => {
   
     bucketPostImageDb.deleteBucketItemPostImage(req.params.id)
     .then(response => {

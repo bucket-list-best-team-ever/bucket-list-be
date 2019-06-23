@@ -27,7 +27,7 @@ async function createBucketItemPost(bucketitempost){
 }
 
 function updateBucketItemPost(id, bucketitempost){
-    return  db('bucketitem')
+    return  db('bucketitempost')
     .where({ id })
     .update(bucketitempost);
 }   
