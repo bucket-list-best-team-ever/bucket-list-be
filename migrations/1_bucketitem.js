@@ -11,6 +11,9 @@ exports.up = function(knex, Promise) {
            .inTable('users')
            .onDelete("CASCADE")
            .onUpdate("CASCADE");
+        tbl.boolean('completed')
+           .notNullable()
+           .defaultTo(false)
         tbl.string('description', 1000)
            .notNullable()
            tbl.timestamp('created')
@@ -19,5 +22,6 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists('bucketitem');
+   return knex.schema.dropTableIfExists('bucketitem')
+
 };

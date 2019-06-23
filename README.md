@@ -18,24 +18,24 @@
 
     -returns all bucket list items for user_id
 
-### GET /api/bucketitem/:id'
+### GET /api/item/:id'
 
     -returns bucket list item for id
 
-### GET /api/bucketitem/:item_id/posts
+### GET /api/item/:item_id/posts
 
     -returns all posts for item_id
 
 
-### GET /api/bucketitem/post/:id
+### GET /api/item/post/:id
 
     -returns a post for id
 
-### GET /api/bucketitem/post/:post_id/images
+### GET /api/item/post/:post_id/images
 
     -returns an all images for post_id
 
-### GET /api/bucketitem/post/image/:id
+### GET /api/item/post/image/:id
 
     -returns image for id 
 
@@ -56,7 +56,7 @@
 
     -returns { message: "Logged in", token: "user token" }
 
-### POST /api/bucketitem
+### POST /api/item
 
     -input:
         -user_id -Required
@@ -64,7 +64,7 @@
 
     -returns id of new item
 
-### POST /api/bucketitem/post
+### POST /api/item/post
 
     -input:
         -bucketitem_id -Required
@@ -72,7 +72,7 @@
 
     -returns id of new post
 
-### POST /api/bucketitem/post/image
+### POST /api/item/post/image
 
     -input:
         -bucketitempost_id -Required
@@ -83,7 +83,7 @@
 
     -returns id of new post
 
-### PUT /api/bucketitem/:id
+### PUT /api/item/:id
 
     -input:
         -user_id -Required
@@ -91,7 +91,7 @@
 
      -returns id of updated item
 
-### PUT /api/bucketitem/post/:id
+### PUT /api/item/post/:id
 
     -input:
         -bucketitem_id -Required
@@ -99,7 +99,7 @@
 
     -returns id of updated post
 
-### PUT /bucketitem/post/image/:id
+### PUT /item/post/image/:id
 
     -input:
         -bucketitempost_id -Required
@@ -108,15 +108,15 @@
 
     -returns id of updated image
 
-### DELETE /api/bucketitem/:id
+### DELETE /api/item/:id
 
     -returns deletes an item by id and returns { message: "deleted id id# " }
 
-### DELETE /api/bucketitem/post/:id
+### DELETE /api/item/post/:id
 
     -returns deletes an post by id and returns { message: "deleted id id# " }
 
 
-### DELETE /bucketitem/post//image/:id
+### DELETE /item/post//image/:id
 
     -returns deletes an image by id and returns { message: "deleted id id# " }
