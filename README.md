@@ -14,6 +14,10 @@
 
     -returns a user currently logged in
 
+### GET /api/user/:id
+
+    -returns a user by id
+
 ### GET /api/user/:user_id/items
 
     -returns all bucket list items for user_id

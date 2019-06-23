@@ -18,6 +18,19 @@ router.get('/users', (req, res) => {
     });
 });
 
+router.get('/user/:id', (req, res) => {
+    userDb.getUserById(req.params.id)
+    .then(response => {
+        if (response.length > 0)
+            res.status(200).json({user: response});
+        else
+            res.status(404).json({ message: "Not found" });
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
 // Get user currently logged in
 router.get('/user', (req, res) => {
   
