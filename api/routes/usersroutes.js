@@ -21,7 +21,7 @@ router.get('/user', (req, res) => {
     userDb.getUserByEmail(req.user.email)
     .then(response => {
         if (response)
-            res.status(200).json({name: response.name, email: response.email});
+            res.status(200).json({user: response});
         else
             res.status(404).json({ message: "User not found" });
     })

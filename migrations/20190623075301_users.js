@@ -12,6 +12,8 @@ exports.up = function(knex, Promise) {
            .unique();
         tbl.string('password', 500)
            .notNullable();
+        tbl.timestamp('created')
+           .defaultTo(knex.fn.now());
       });
 };
 

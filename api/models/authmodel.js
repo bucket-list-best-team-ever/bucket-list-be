@@ -18,11 +18,13 @@ function loginUser(email) {
 }
 
 function getUsers(){
-    return db('users');
+    return db('users')
+    .select('id', 'name', 'email', 'created');
 }
 
 function getUserByEmail(email){
     return db('users')
+    .select('id', 'name', 'email', 'created')
     .where({ email })
     .first();
 }
