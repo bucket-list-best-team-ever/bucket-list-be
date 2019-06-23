@@ -82,8 +82,8 @@
 
 ### DELETE /api/bucketitem/:id
 
-    -returns deletes an item by id and returns { message: "delected id id# " }
+    -returns deletes an item by id and returns { message: "deleted id id# " }
 
 ### DELETE /api/bucketitem/post/:id
 
-    -returns deletes an post by id and returns { message: "delected id id# " }
+    -returns deletes an post by id and returns { message: "deleted id id# " }
