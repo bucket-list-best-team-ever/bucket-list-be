@@ -16,7 +16,7 @@ function getBucketItemById(id) {
 
 function getBucketItemByUserId(user_id) {
     return db('bucketitem')
-        .where(user_id);
+        .where({ user_id });
 }
 
 async function createBucketItem(bucketitem){

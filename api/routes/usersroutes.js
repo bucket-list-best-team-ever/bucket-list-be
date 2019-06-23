@@ -1,4 +1,5 @@
 const userDb = require("../models/authmodel");
+const bucketDb = require("../models/bucketmodel");
 const express = require('express');
 
 const router = express.Router(); 
@@ -29,5 +30,20 @@ router.get('/user', (req, res) => {
         res.status(500).json({error: error.message});
     });
 });
+
+router.get('/user/:user_id/items', (req, res) => {
+  
+    bucketDb.getBucketItemByUserId(req.params.user_id)
+    .then(response => {
+        if (response)
+            res.status(200).json({items: response});
+        else
+            res.status(404).json({ message: "No items for user found" });
+    })
+    .catch(error => {
+        res.status(500).json({error: error.message});
+    });
+});
+
 
 module.exports = router;
