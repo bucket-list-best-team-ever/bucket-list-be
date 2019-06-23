@@ -18,4 +18,11 @@ server.use("/api", authRoute);
 server.use("/api", isLoggedIn, usersRoute);  
 server.use("/api", isLoggedIn, bucketRoute);  
 
+
+server.get('/', (req, res) => {
+  
+    res.status(200).json({message: "Bucket List API"});
+
+});
+
 module.exports = server;
