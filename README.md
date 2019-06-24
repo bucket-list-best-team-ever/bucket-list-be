@@ -12,7 +12,7 @@
 
 ### GET /api/user
 
-    -returns a user currently logged in
+    -returns the user currently logged in
 
 ### GET /api/user/:id
 
@@ -33,7 +33,7 @@
 
 ### GET /api/item/post/:id
 
-    -returns a post for id
+    -returns a post by id
 
 ### GET /api/item/post/:post_id/images
 
@@ -41,7 +41,7 @@
 
 ### GET /api/item/post/image/:id
 
-    -returns image for id 
+    -returns image by id 
 
 ### POST /api/register
 
@@ -50,7 +50,7 @@
         -email -Required
         -password -Required
 
-    -returns { message: "User creates", token: "user token" }
+    -returns { message: "User created", token: "user token" }
 
 ### POST /api/login
 
@@ -85,7 +85,7 @@
 
     image and url are not required so you can choose how to store an image.
 
-    -returns id of new post
+    -returns id of new image
 
 ### PUT /api/item/:id
 
@@ -114,13 +114,13 @@
 
 ### DELETE /api/item/:id
 
-    -returns deletes an item by id and returns { message: "deleted id id# " }
+    -deletes an item by id and returns { message: "deleted id id# " }
 
 ### DELETE /api/item/post/:id
 
-    -returns deletes an post by id and returns { message: "deleted id id# " }
+    -deletes an post by id and returns { message: "deleted id id# " }
 
 
 ### DELETE /item/post//image/:id
 
-    -returns deletes an image by id and returns { message: "deleted id id# " }
+    -deletes an image by id and returns { message: "deleted id id# " }
