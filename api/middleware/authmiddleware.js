@@ -15,7 +15,7 @@ function validateUser(req, res, next) {
             res.status(404).json({ message: "Invalid User" });
         else{
             if (bcrypt.compareSync(user.password, response.password)){
-                req.cred =  {id: response.id, email: response.username, password: response.password};
+                req.cred =  {id: response.id, email: response.email, password: response.password};
                 user.password = bcrypt.hashSync(user.password, 8);
                 req.token = jwt.getToken(req.cred);
                 next();
