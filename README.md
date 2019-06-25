@@ -138,3 +138,36 @@
 ### DELETE /api/user/friends/:friend_id
 
     -deletes a friendship for friend_id and returns { message: "Unfriended " }
+
+
+
+
+---
+
+
+##Contact Endpoints
+
+### GET /api/contacts
+
+    -returns an array of all contacts
+
+### GET /api/contacts/:id/messages
+
+    -returns an array of all messages for a contact
+
+### POST /api/contacts
+
+    -input:
+        -firstname -Required
+        -lastname  -Required
+        -email     -Required
+
+    -returns id of new contact
+
+### POST /api/contacts/:id/messages
+
+    -input:
+        -contact_id -Required
+        -message    -Required
+
+    -returns id of new message
