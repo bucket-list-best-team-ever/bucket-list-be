@@ -62,6 +62,19 @@ router.delete("/user/friends/:friend_id", (req, res) => {
       });
   });
   
+  // Get user currently logged in
+router.get("/user", (req, res) => {
+  userDb
+    .getUserByEmail(req.user.email)
+    .then(response => {
+      if (response) res.status(200).json({ user: response });
+      else res.status(404).json({ message: "User not found" });
+    })
+    .catch(error => {
+      res.status(500).json({ error: error.message });
+    });
+});
+
 // Get all users
 router.get("/users", (req, res) => {
   userDb
@@ -87,18 +100,7 @@ router.get("/user/:id", (req, res) => {
     });
 });
 
-// Get user currently logged in
-router.get("/user", (req, res) => {
-  userDb
-    .getUserByEmail(req.user.email)
-    .then(response => {
-      if (response) res.status(200).json({ user: response });
-      else res.status(404).json({ message: "User not found" });
-    })
-    .catch(error => {
-      res.status(500).json({ error: error.message });
-    });
-});
+
 
 // Get all users bucket list items
 router.get("/user/:user_id/items", (req, res) => {
