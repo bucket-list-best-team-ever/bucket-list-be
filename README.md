@@ -171,3 +171,8 @@
         -message    -Required
 
     -returns id of new message
+
+### DELETE /api/contacts/:id
+
+    -deletes a contact by id
+

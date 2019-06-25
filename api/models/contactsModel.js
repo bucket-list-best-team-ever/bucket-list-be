@@ -5,6 +5,7 @@ module.exports = {
     addContact,
     getMessage,
     addMessage,
+    deleteContact,
 }
 
 function getContacts() {
@@ -16,6 +17,12 @@ async function addContact(contact){
     .insert(contact);
 
     return id;
+}
+
+function deleteContact(id){
+    return db('contacts')
+    .where({ id })
+    .del();
 }
 
 function getMessage(contact_id){
