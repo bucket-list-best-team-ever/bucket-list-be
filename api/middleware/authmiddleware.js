@@ -15,9 +15,9 @@ function validateUser(req, res, next) {
             res.status(404).json({ message: "Invalid User" });
         else{
             if (bcrypt.compareSync(user.password, response.password)){
-                req.cred =  user;
+                req.cred =  {id: response.id, email: response.username, password: response.password};
                 user.password = bcrypt.hashSync(user.password, 8);
-                req.token = jwt.getToken(user);
+                req.token = jwt.getToken(req.cred);
                 next();
             }
             else{
@@ -28,10 +28,10 @@ function validateUser(req, res, next) {
 };
 
 // Is user logged in middleware
- function isLoggedIn(req, res, next){
+ async function isLoggedIn(req, res, next){
     const verify =  jwt.verify(req.headers.authorization);
     if (verify.status === 0){
-        req.user = {token: req.headers.authorization, email: verify.results.email};
+        req.user = {token: req.headers.authorization, email: verify.results.email, id: verify.results.id};
         next();
     }
     else

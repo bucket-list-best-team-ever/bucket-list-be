@@ -26,7 +26,8 @@ function getUsers(){
 function getUserById(id){
     return db('users')
     .select('id', 'name', 'email', 'created')
-    .where({ id });
+    .where({ id })
+    .first();
 }
 
 

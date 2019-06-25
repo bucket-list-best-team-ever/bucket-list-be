@@ -22,6 +22,10 @@
 
     -returns all bucket list items for user_id
 
+### GET /api/user/friends
+
+    -returns logged in users friends
+
 ### GET /api/item/:id'
 
     -returns bucket list item for id
@@ -87,6 +91,12 @@
 
     -returns id of new image
 
+### POST /api/user/friends/:friend_id
+
+    Creates a friendship with friend of friend_id
+
+    -returns { message: Friendship created }
+
 ### PUT /api/item/:id
 
     -input:
@@ -121,6 +131,10 @@
     -deletes an post by id and returns { message: "deleted id id# " }
 
 
-### DELETE /item/post//image/:id
+### DELETE /api/item/post//image/:id
 
     -deletes an image by id and returns { message: "deleted id id# " }
+
+### DELETE /api/user/friends/:friend_id
+
+    -deletes a friendship for friend_id and returns { message: "Unfriended " }
