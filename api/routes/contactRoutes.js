@@ -28,6 +28,21 @@ router.post('/contacts', (req, res) => {
     });
 });
 
+router.delete("/contacts/:id", (req, res) => {
+
+    contactsDb
+      .deleteContact(req.params.id)
+      .then(response => {
+        if (response === 0)
+            res.status(404).json({ message: "Contact not found" });
+        else
+            res.status(200).json({ message: "Contact Deleted" });
+      })
+      .catch(error => {
+        res.status(500).json({ error: error.message });
+      });
+  });
+
 router.get('/contacts/:id/messages', (req, res) => {
   
     contactsDb.getMessage(req.params.id)
