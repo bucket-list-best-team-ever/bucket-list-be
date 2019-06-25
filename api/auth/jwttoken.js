@@ -3,6 +3,7 @@ const secrets = require('../../config/secrets');
 
 function getToken(user){
     const payload = {
+        id: user.id,
         email: user.email,
         password: user.password,
     };

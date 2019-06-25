@@ -9,7 +9,7 @@ const { isLoggedIn } = require('./middleware/authmiddleware');
 const server = express(); 
 
 server.use(helmet());
-server.use(express.json());
+ 
 server.use(cors());
 
 server.use(express.json());
