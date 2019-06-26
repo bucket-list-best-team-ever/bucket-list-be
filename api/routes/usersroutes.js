@@ -45,10 +45,6 @@ router.post("/user/friends/:friend_id", (req, res) => {
 });
 
 router.delete("/user/friends/:friend_id", (req, res) => {
-    if (req.user.id == req.params.friend_id){
-      res.status(403).json({ message: "Why?  Don't you like you?  Can not unfriend yourself." });
-      return;
-    }
     friendsDb
       .deleteFriend(req.user.id, req.params.friend_id)
       .then(response => {
