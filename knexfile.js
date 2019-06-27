@@ -1,21 +1,14 @@
 module.exports = {
   development: {
-    client: "sqlite3",
+    client: "pg",
+    connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
-    connection: {
-      filename: "./data/bucketlist.db3"
-    },
     migrations: {
-        directory: "./migrations"
-      },
-      seeds: {
-        directory: "./seeds"
-      },
-    pool: {
-        afterCreate: (connection, done) => {
-          connection.run("PRAGMA foreign_keys = ON", done);
-        }
-      }
+      directory: "./migrations"
+    },
+    seeds: {
+      directory: "./seeds"
+    }
   },
   production: {
     client: "pg",
