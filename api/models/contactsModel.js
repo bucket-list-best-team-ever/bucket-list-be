@@ -13,10 +13,8 @@ function getContacts() {
 }
 
 async function addContact(contact){
-    const [id] = await db('contacts')
-    .insert(contact);
-
-    return id;
+    const [newContact] = await db('contacts').insert(contact, ["id"]);
+    return newContact.id;
 }
 
 function deleteContact(id){
@@ -34,7 +32,6 @@ function getMessage(contact_id){
 }
 
 async function addMessage(message){
-
-    const [newUser] = await db('messages').insert(user, ["id"]);
-    return id;
+    const [newMessage] = await db('messages').insert(message, ["id"]);
+    return newMessage.id;
 }
