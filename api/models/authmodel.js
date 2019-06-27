@@ -10,13 +10,13 @@ module.exports = {
 
 async function registerUser(user) {
 
-    if (process.env.NODE_ENV === "production"){
+    //if (process.env.NODE_ENV === "production"){
         const [newUser] = await db('users').insert(user, ["id"]);
         return newUser.id;
-    }
-    const [id] = await db('users').insert(user);
+   // }
+   // const [id] = await db('users').insert(user);
 
-    return id;
+    //return id;
 }
 
 function loginUser(email) {
