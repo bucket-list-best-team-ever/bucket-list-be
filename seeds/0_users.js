@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 // Create a test user
 exports.seed = function(knex, Promise) {
 
-  return knex('users').truncate()
+  return knex('users').del()
     .then(function () {
       return knex('users').insert([
         {name: 'Test User', 

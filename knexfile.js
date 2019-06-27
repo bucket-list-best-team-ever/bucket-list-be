@@ -1,14 +1,25 @@
+require("dotenv").config();
+const pg = require('pg');
+pg.defaults.ssl= true;
+
 module.exports = {
   development: {
-    client: "pg",
-    connection: process.env.DATABASE_URL,
+    client: "sqlite3",
     useNullAsDefault: true,
-    migrations: {
-      directory: "./migrations"
+    connection: {
+      filename: "./data/bucketlist.db3"
     },
-    seeds: {
-      directory: "./seeds"
-    }
+    migrations: {
+        directory: "./migrations"
+      },
+      seeds: {
+        directory: "./seeds"
+      },
+    pool: {
+        afterCreate: (connection, done) => {
+          connection.run("PRAGMA foreign_keys = ON", done);
+        }
+      }
   },
   production: {
     client: "pg",
@@ -19,6 +30,10 @@ module.exports = {
     },
     seeds: {
       directory: "./seeds"
+    },
+    pool: {
+      min:2,
+      max:10
     }
   }
 };
