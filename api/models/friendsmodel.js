@@ -7,7 +7,10 @@ module.exports = {
 }
 
 function getFriends(id) {
-    return db.raw(`SELECT friend_id, name, email FROM friends JOIN users ON users.id = friends.friend_id WHERE friends.user_id = ${id}`);
+
+    return db('friends')
+    .where({user_id: id});
+    
 }
 
 async function createFriend(user_id, friend_id) {
