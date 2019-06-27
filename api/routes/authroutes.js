@@ -22,11 +22,11 @@ router.post("/register", async (req, res) => {
         if (newUser)
             res.status(409).json({ message: "User already exists" });
         
-        const token =  jwt.getToken({ email: user.email, password: user.password});
+      
         const regUser = {name: user.name, email: user.email, password: user.password };
       
         const response = await userDb.registerUser(regUser);
-
+        const token =  jwt.getToken({ email: user.email, password: user.password, id: response});
         if (response){
             res.status(200).json({ message: "User created", token: token });
         }
