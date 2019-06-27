@@ -34,11 +34,7 @@ function getMessage(contact_id){
 }
 
 async function addMessage(message){
-    const [id] = await db('messages')
-    .insert(message);
 
+    const [newUser] = await db('messages').insert(user, ["id"]);
     return id;
 }
-
-
- 
