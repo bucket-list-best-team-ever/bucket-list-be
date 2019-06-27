@@ -8,8 +8,15 @@ module.exports = {
     getUserByEmail,
 }
 
-function registerUser(user) {
-    return db('users').insert(user);
+async function registerUser(user) {
+
+    if (process.env.NODE_ENV === "production"){
+        const [newUser] = await db('users').insert(user, ["id"]);
+        return newUser.id;
+    }
+    const [id] = await db('users').insert(user);
+
+    return id;
 }
 
 function loginUser(email) {
