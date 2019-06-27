@@ -33,7 +33,7 @@ async function createFriend(user_id, friend_id) {
     if ( !friend)
         return {bad_friend: 'Friend ID is invalid'}
 
-    const [userid] = await db('friends')
+    const userid = await db('friends')
     .insert({user_id: user_id, friend_id: friend_id});
 
     return userid;
